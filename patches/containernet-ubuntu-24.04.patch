@@ -1,0 +1,13 @@
+diff --git a/util/install.sh b/util/install.sh
+index 284993a..5897703 100755
+--- a/util/install.sh
++++ b/util/install.sh
+@@ -69,7 +69,7 @@ if [ "$DIST" = "SUSE Linux" ]; then
+     fi
+ fi
+ if which lsb_release &> /dev/null; then
+-    DIST=`lsb_release -is`
++    DIST=`echo Ubuntu`
+     RELEASE=`lsb_release -rs`
+     CODENAME=`lsb_release -cs`
+ fi

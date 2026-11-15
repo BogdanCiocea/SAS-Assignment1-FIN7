@@ -1,0 +1,47 @@
+diff --git a/controller/controller.c b/controller/controller.c
+index 41f2547..6eec590 100644
+--- a/controller/controller.c
++++ b/controller/controller.c
+@@ -58,8 +58,8 @@
+ #include "vlog.h"
+ #define THIS_MODULE VLM_controller
+ 
+-#define MAX_SWITCHES 16
+-#define MAX_LISTENERS 16
++#define MAX_SWITCHES 4096
++#define MAX_LISTENERS 4096
+ 
+ struct switch_ {
+     struct lswitch *lswitch;
+diff --git a/lib/util.c b/lib/util.c
+index 21cc28d..1f341b1 100644
+--- a/lib/util.c
++++ b/lib/util.c
+@@ -138,6 +138,7 @@ xasprintf(const char *format, ...)
+     return s;
+ }
+ 
++#ifndef HAVE_STRLCPY
+ void
+ strlcpy(char *dst, const char *src, size_t size)
+ {
+@@ -148,6 +149,7 @@ strlcpy(char *dst, const char *src, size_t size)
+         dst[n_copy] = '\0';
+     }
+ }
++#endif
+ 
+ void
+ ofp_fatal(int err_no, const char *format, ...)
+diff --git a/lib/util.h b/lib/util.h
+index fde681f..27221c4 100644
+--- a/lib/util.h
++++ b/lib/util.h
+@@ -34,6 +34,7 @@
+ #ifndef UTIL_H
+ #define UTIL_H 1
+ 
++#include <config.h>
+ #include <stdarg.h>
+ #include <stdbool.h>
+ #include <stddef.h>
