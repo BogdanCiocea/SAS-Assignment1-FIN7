@@ -4,9 +4,6 @@ A container-based simulation of a FIN7-style intrusion. It covers network
 reconnaissance, phishing delivery, an in-memory PowerShell backdoor
 (POWERPLANT / KillACK), C2 beaconing, keylogging and credential exfiltration.
 
-> **Lab use only.** This project intentionally runs malicious-looking payloads
-> inside isolated Docker/Mininet containers. Do not expose it to a real network.
-
 ## Topology
 
 ```
