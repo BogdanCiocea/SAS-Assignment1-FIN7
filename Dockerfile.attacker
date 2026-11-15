@@ -1,0 +1,4 @@
+FROM fin7-base
+
+COPY payloads/ /opt/fin7/
+RUN chmod 755 /opt/fin7/cybersecurity4dummies.sh
